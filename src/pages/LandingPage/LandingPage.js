@@ -18,7 +18,7 @@ const LandingPage = () => {
         </div>
         <div className="flex flexCol">
           <Link to="/signup">
-            <button type="button" class="btn btn-primary join-now-btn m-2">
+            <button type="button" className="btn btn-primary join-now-btn m-2">
               Join Now
             </button>
           </Link>
