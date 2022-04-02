@@ -1,0 +1,42 @@
+.landing-page-wrapper {
+  margin: 2rem 4rem;
+  padding: 3rem 4rem;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.landing-page-main-heading {
+  font-size: 3.5rem;
+}
+
+.landing-page-main-heading > span {
+  color: var(--primary-color);
+}
+
+.landing-page-heading {
+  font-size: 2rem;
+}
+
+.landing-page-sub-heading {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.landing-page-description {
+  font-size: 1.2rem;
+}
+
+.landing-page-image {
+  width: 70rem;
+}
+
+.join-now-btn {
+  font-size: large;
+  width: 15rem;
+}
+
+.landing-page-footer-link {
+  color: var(--primary-color);
+  font-size: large;
+  font-weight: 600;
+}
