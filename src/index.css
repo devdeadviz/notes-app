@@ -8,3 +8,7 @@ body {
   font-family: "Merriweather", serif;
   background-color: #f7f7f7;
 }
+
+i:hover {
+  cursor: pointer;
+}
