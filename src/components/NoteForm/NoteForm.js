@@ -11,7 +11,7 @@ const NoteForm = () => {
         <textarea className="note-form-body" placeholder="Take a note..." />
         <div className="flex flexAlignItemsCenter">
           <button
-            type="button"
+            type="submit"
             class="btn btn-outline-primary add-note-btn m-2"
           >
             Add Note
