@@ -1,0 +1,53 @@
+.login-wrapper {
+  margin: 4rem;
+}
+
+/* login Image Styles */
+
+.login-image {
+  width: 40%;
+}
+
+/* Card styles */
+
+.login-card-wrapper {
+  height: fit-content;
+  width: 25rem;
+  margin: 1rem;
+}
+
+/* Input styles */
+
+#email-input,
+#password-input {
+  width: 100%;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+#email-input:focus {
+  border: 2px solid var(--primary-color);
+}
+
+#password-input:focus {
+  border: 2px solid var(--primary-color);
+}
+
+/* Form Submit button styles */
+
+.submit-btn {
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0;
+}
+
+/* login Card Footer Style */
+
+.text-decoration-none {
+  color: var(--hyper-link-color);
+}
