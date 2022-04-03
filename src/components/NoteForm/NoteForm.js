@@ -4,7 +4,10 @@ const NoteForm = () => {
   return (
     <>
       <form className="note-form-wrapper my-4">
-        <textarea className="note-form-title" placeholder="Title" />
+        <div className="flex flexAlignItemsCenter">
+          <textarea className="note-form-title" placeholder="Title" />
+          <i class="fa-solid fa-thumbtack mx-3"></i>
+        </div>
         <textarea className="note-form-body" placeholder="Take a note..." />
         <div className="flex flexAlignItemsCenter">
           <button

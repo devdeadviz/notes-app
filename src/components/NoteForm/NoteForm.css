@@ -31,7 +31,8 @@
   border: none;
 }
 
-.note-form-options {
+.note-form-options,
+.fa-thumbtack {
   margin-left: auto;
   font-size: 1.5rem;
   color: var(--icons-color);

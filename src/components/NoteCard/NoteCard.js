@@ -3,8 +3,9 @@ import "./NoteCard.css";
 const NoteCard = ({ title, body }) => {
   return (
     <div class="vertical-card-wrapper note-card-wrapper p-2">
-      <div class="vertical-card-header">
+      <div class="vertical-card-header flex flexAlignItemsCenter">
         <h2 class="m-2">{title}</h2>
+        <i class="fa-solid fa-thumbtack mx-3"></i>
       </div>
       <div class="vertical-card-body my-4 mx-2">
         <p>{body}</p>
