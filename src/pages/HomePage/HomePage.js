@@ -1,4 +1,4 @@
-import { Sidebar } from "../../components";
+import { NoteForm, Sidebar } from "../../components";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -15,6 +15,7 @@ const HomePage = () => {
           />
           <i className="fa-solid fa-bars"></i>
         </div>
+        <NoteForm />
       </section>
     </section>
   );
