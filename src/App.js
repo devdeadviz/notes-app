@@ -7,7 +7,7 @@ const App = () => {
   const location = useLocation();
   return (
     <>
-      {location.pathname === "/" ? "" : <Navbar />}
+      {location.pathname === "/" || location.pathname === "/mockman" ? "" : <Navbar />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/home" element={<HomePage />} />
