@@ -1,5 +1,5 @@
 .note-form-wrapper {
-  background-color: #fff;
+  background-color: var(--white-color);
   border-radius: 10px;
   width: 35rem;
 }
@@ -17,6 +17,7 @@
 
 .note-form-title {
   height: 3rem;
+  margin-top: 0;
 }
 
 .note-form-body {
@@ -33,5 +34,5 @@
 .note-form-options {
   margin-left: auto;
   font-size: 1.5rem;
-  color: rgb(95, 94, 94);
+  color: var(--icons-color);
 }

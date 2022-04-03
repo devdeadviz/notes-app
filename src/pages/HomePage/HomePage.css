@@ -11,6 +11,12 @@
   border: 3px solid #d1d1d1;
   border-radius: 5px;
   width: 35rem;
+  background-color: var(--white-color);
+}
+
+.fa-magnifying-glass,
+.fa-bars {
+  color: var(--icons-color);
 }
 
 .fa-magnifying-glass {
