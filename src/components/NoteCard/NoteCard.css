@@ -1,0 +1,12 @@
+.note-card-wrapper {
+  background-color: var(--white-color);
+  border-radius: 10px;
+  width: 35rem;
+  border: none;
+}
+
+.note-card-options {
+  margin-left: auto;
+  font-size: 1.5rem;
+  color: var(--icons-color);
+}
