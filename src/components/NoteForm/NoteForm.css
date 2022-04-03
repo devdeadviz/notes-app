@@ -1,0 +1,39 @@
+.note-form-wrapper {
+  background-color: var(--white-color);
+  border-radius: 10px;
+  width: 35rem;
+}
+
+.note-form-title,
+.note-form-body {
+  resize: none;
+  overflow: hidden;
+  padding: 10px;
+  outline: none;
+  background: transparent;
+  border: none;
+  font-family: "Merriweather", serif;
+}
+
+.note-form-title {
+  height: 3rem;
+  margin-top: 0;
+}
+
+.note-form-body {
+  height: fit-content;
+  margin-top: 0;
+}
+
+.add-note-btn {
+  font-size: small;
+  padding: 5px;
+  border: none;
+}
+
+.note-form-options,
+.fa-thumbtack {
+  margin-left: auto;
+  font-size: 1.5rem;
+  color: var(--icons-color);
+}

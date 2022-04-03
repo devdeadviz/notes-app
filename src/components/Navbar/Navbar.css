@@ -1,0 +1,13 @@
+.navbar {
+  width: 100%;
+  background-color: var(--white-color);
+  font-size: 1.5rem;
+}
+
+.navbar h3 {
+  margin: 0 5rem;
+}
+
+.navbar span {
+  color: var(--primary-color);
+}

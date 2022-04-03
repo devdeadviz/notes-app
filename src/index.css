@@ -1,9 +1,15 @@
 :root {
   --primary-color: #2232cf;
   --text-color: black;
+  --white-color: #fff;
+  --icons-color: #5f5e5e;
 }
 
 body {
   font-family: "Merriweather", serif;
   background-color: #f7f7f7;
+}
+
+i:hover {
+  cursor: pointer;
 }

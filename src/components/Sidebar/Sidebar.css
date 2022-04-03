@@ -1,0 +1,36 @@
+.sidebar-wrapper {
+  flex-basis: 20rem;
+  height: 89.5vh;
+}
+
+.sidebar-lists {
+  list-style-type: none;
+}
+
+.sidebar-lists-items {
+  margin: 1.5rem 0;
+  font-size: 1.2rem;
+}
+
+.sidebar-lists-items:hover {
+  cursor: pointer;
+}
+
+.create-btn {
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem;
+  border-radius: 0cm;
+}
+
+.profile-image {
+  width: 4rem;
+}
+
+.fa-arrow-right-from-bracket {
+  margin-left: auto;
+}
+
+.fa-arrow-right-from-bracket:hover {
+  cursor: pointer;
+}
