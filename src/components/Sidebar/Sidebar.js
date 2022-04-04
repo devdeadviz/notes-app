@@ -1,6 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    localStorage.clear();
+    navigate("/");
+    navigate(0);
+  };
+
   return (
     <aside className="sidebar-wrapper flex flexCol flexJustifyBetween p-5">
       <section>
@@ -39,7 +48,10 @@ const Sidebar = () => {
           />
           <p>Kuldeep Gupta</p>
         </div>
-        <i className="fa-solid fa-arrow-right-from-bracket fa-2x"></i>
+        <i
+          className="fa-solid fa-arrow-right-from-bracket fa-2x"
+          onClick={logoutHandler}
+        ></i>
       </section>
     </aside>
   );
