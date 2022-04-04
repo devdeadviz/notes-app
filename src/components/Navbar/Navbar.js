@@ -1,9 +1,14 @@
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <nav className="navbar p-5">
-      <h3><span>My</span>Notes</h3>
+      <Link className="text-decoration-none" to="/">
+        <h3>
+          <span>My</span>Notes
+        </h3>
+      </Link>
     </nav>
   );
 };

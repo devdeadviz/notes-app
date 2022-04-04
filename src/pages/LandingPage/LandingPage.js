@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../../contexts";
 import "./LandingPage.css";
 
 const LandingPage = () => {
+  const {
+    state: { isAuth },
+  } = useAuth();
+
   return (
     <div className="landing-page-wrapper box-shadow flex m-5">
       <section className="flex flexCol flexJustifyBetween ">
@@ -17,17 +22,33 @@ const LandingPage = () => {
           </p>
         </div>
         <div className="flex flexCol">
-          <Link to="/signup">
-            <button type="button" className="btn btn-primary join-now-btn m-2">
-              Join Now
-            </button>
-          </Link>
-          <Link
-            to="/login"
-            className="text-decoration-none landing-page-footer-link pl-2 my-2"
-          >
-            Already have an account?
-          </Link>
+          {isAuth ? (
+            <Link to="/home">
+              <button
+                type="button"
+                className="btn btn-primary join-now-btn m-2"
+              >
+                Start taking Notes
+              </button>
+            </Link>
+          ) : (
+            <>
+              <Link to="/signup">
+                <button
+                  type="button"
+                  className="btn btn-primary join-now-btn m-2"
+                >
+                  Join Now
+                </button>
+              </Link>
+              <Link
+                to="/login"
+                className="text-decoration-none landing-page-footer-link pl-2 my-2"
+              >
+                Already have an account?
+              </Link>
+            </>
+          )}
         </div>
       </section>
       <img

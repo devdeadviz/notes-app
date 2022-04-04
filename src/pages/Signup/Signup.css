@@ -1,0 +1,45 @@
+.signup-wrapper {
+  margin: 0 4rem;
+}
+
+/* Signup Card styles */
+
+.signup-card-wrapper {
+  height: fit-content;
+  width: 25rem;
+  margin: 1rem;
+}
+
+/* Input styles */
+
+#first-name-input,
+#last-name-input,
+#confirm-password-input {
+  width: 100%;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+#first-name-input:focus {
+  border: 2px solid var(--primary-color);
+}
+
+#last-name-input:focus {
+  border: 2px solid var(--primary-color);
+}
+
+#confirm-password-input:focus {
+  border: 2px solid var(--primary-color);
+}
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
+.password-match {
+  color: red;
+}

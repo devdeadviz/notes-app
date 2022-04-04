@@ -1,3 +1,5 @@
+@import "react-toastify/dist/ReactToastify.min.css";
+
 :root {
   --primary-color: #2232cf;
   --text-color: black;
@@ -12,4 +14,8 @@ body {
 
 i:hover {
   cursor: pointer;
+}
+
+fieldset {
+  border: none;
 }

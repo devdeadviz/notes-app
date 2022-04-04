@@ -1,6 +1,19 @@
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts";
 import "./Sidebar.css";
 
 const Sidebar = () => {
+  const {
+    state: { user },
+  } = useAuth();
+
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    localStorage.clear();
+    navigate(0);
+  };
+
   return (
     <aside className="sidebar-wrapper flex flexCol flexJustifyBetween p-5">
       <section>
@@ -37,9 +50,12 @@ const Sidebar = () => {
             className="responsive-image profile-image"
             src="/assets/profile.png"
           />
-          <p>Kuldeep Gupta</p>
+          <p>{user.firstName + " " + user.lastName}</p>
         </div>
-        <i className="fa-solid fa-arrow-right-from-bracket fa-2x"></i>
+        <i
+          className="fa-solid fa-arrow-right-from-bracket fa-2x"
+          onClick={logoutHandler}
+        ></i>
       </section>
     </aside>
   );
