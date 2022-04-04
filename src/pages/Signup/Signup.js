@@ -1,9 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useReducer } from "react";
 import "./Signup.css";
 import { signupReducer } from "../../reducers";
+import { signupFunc } from "../../services";
+import { useAuth } from "../../contexts";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const [state, dispatch] = useReducer(signupReducer, {
     firstName: "",
     lastName: "",
@@ -13,6 +17,19 @@ const Signup = () => {
   });
 
   const { firstName, lastName, email, password, confirmPassword } = state;
+
+  const { dispatch: signupDispatch } = useAuth();
+
+  const signupHandler = async (e, userObj) => {
+    e.preventDefault();
+    const { createdUser: user, encodedToken } = await signupFunc(userObj);
+    if (encodedToken) {
+      signupDispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", encodedToken);
+      navigate("/home");
+    }
+  };
 
   return (
     <div className="signup-wrapper flex flexJustifyAround flexAlignItemsCenter">
@@ -109,6 +126,9 @@ const Signup = () => {
                   type="submit"
                   className="btn btn-primary submit-btn"
                   disabled={password !== confirmPassword}
+                  onClick={(e) =>
+                    signupHandler(e, { firstName, lastName, email, password })
+                  }
                 >
                   Create New Account
                 </button>
