@@ -1,12 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { loginFunc } from "../../services";
 import "./Login.css";
+import { useAuth } from "../../contexts";
 
 const Login = () => {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+
+  const { dispatch } = useAuth();
+
+  const navigate = useNavigate();
+
+  const loginHandler = async (e, userObj) => {
+    e.preventDefault();
+    const { foundUser: user, encodedToken } = await loginFunc(userObj);
+    if (encodedToken) {
+      dispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", encodedToken);
+      navigate("/home");
+    }
+  };
 
   return (
     <div className="login-wrapper flex flexJustifyAround flexAlignItemsCenter">
@@ -59,10 +76,28 @@ const Login = () => {
                   Forgot your password?
                 </Link>
               </div>
-              <button type="submit" className="btn btn-primary submit-btn">
+              <button
+                type="submit"
+                className="btn btn-primary submit-btn"
+                onClick={(e) =>
+                  loginHandler(e, {
+                    email: user.email,
+                    password: user.password,
+                  })
+                }
+              >
                 Submit
               </button>
-              <button type="button" className="btn btn-primary submit-btn mt-4">
+              <button
+                type="button"
+                className="btn btn-primary submit-btn mt-4"
+                onClick={(e) =>
+                  loginHandler(e, {
+                    email: "adarshbalika@gmail.com",
+                    password: "adarshBalika123",
+                  })
+                }
+              >
                 Login as Guest
               </button>
             </form>

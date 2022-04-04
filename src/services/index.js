@@ -1,0 +1,1 @@
+export { loginFunc } from "./loginFunc";
