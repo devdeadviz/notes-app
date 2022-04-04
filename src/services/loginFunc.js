@@ -1,11 +1,12 @@
 import axios from "axios";
 
-const loginFunc = async (user) => {
+const loginFunc = async (user, showToast) => {
   try {
     const response = await axios.post("/api/auth/login", user);
+    showToast("Logged In", "success");
     return response.data;
   } catch (error) {
-    console.error(error.response.data);
+    showToast(error.response.data.errors[0], "error");
   }
 };
 

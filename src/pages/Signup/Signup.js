@@ -4,6 +4,7 @@ import "./Signup.css";
 import { signupReducer } from "../../reducers";
 import { signupFunc } from "../../services";
 import { useAuth } from "../../contexts";
+import { useToast } from "../../custom-hooks";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -16,13 +17,18 @@ const Signup = () => {
     confirmPassword: "",
   });
 
+  const { showToast } = useToast();
+
   const { firstName, lastName, email, password, confirmPassword } = state;
 
   const { dispatch: signupDispatch } = useAuth();
 
   const signupHandler = async (e, userObj) => {
     e.preventDefault();
-    const { createdUser: user, encodedToken } = await signupFunc(userObj);
+    const { createdUser: user, encodedToken } = await signupFunc(
+      userObj,
+      showToast
+    );
     if (encodedToken) {
       signupDispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
       localStorage.setItem("user", JSON.stringify(user));

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { loginFunc } from "../../services";
 import "./Login.css";
 import { useAuth } from "../../contexts";
+import { useToast } from "../../custom-hooks";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -14,9 +15,14 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const { showToast } = useToast();
+
   const loginHandler = async (e, userObj) => {
     e.preventDefault();
-    const { foundUser: user, encodedToken } = await loginFunc(userObj);
+    const { foundUser: user, encodedToken } = await loginFunc(
+      userObj,
+      showToast
+    );
     if (encodedToken) {
       dispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
       localStorage.setItem("user", JSON.stringify(user));
