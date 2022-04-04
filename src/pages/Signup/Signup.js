@@ -26,10 +26,10 @@ const Signup = () => {
   const signupHandler = async (e, userObj) => {
     e.preventDefault();
     if (
-      firstName !== "" ||
-      lastName !== "" ||
-      email !== "" ||
-      password !== ""
+      userObj.firstName !== "" ||
+      userObj.lastName !== "" ||
+      userObj.email !== "" ||
+      userObj.password !== ""
     ) {
       const { createdUser: user, encodedToken } = await signupFunc(
         userObj,
