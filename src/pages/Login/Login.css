@@ -45,9 +45,3 @@
   padding: 0.5rem;
   border-radius: 0;
 }
-
-/* login Card Footer Style */
-
-.text-decoration-none {
-  color: var(--hyper-link-color);
-}
