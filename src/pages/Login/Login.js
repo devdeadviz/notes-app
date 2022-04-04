@@ -19,15 +19,19 @@ const Login = () => {
 
   const loginHandler = async (e, userObj) => {
     e.preventDefault();
-    const { foundUser: user, encodedToken } = await loginFunc(
-      userObj,
-      showToast
-    );
-    if (encodedToken) {
-      dispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
-      localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("token", encodedToken);
-      navigate("/home");
+    if (userObj.email !== "" || userObj.password !== "") {
+      const { foundUser: user, encodedToken } = await loginFunc(
+        userObj,
+        showToast
+      );
+      if (encodedToken) {
+        dispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("token", encodedToken);
+        navigate("/home");
+      }
+    } else {
+      showToast("Fill all the fields!", "warn");
     }
   };
 
@@ -55,6 +59,7 @@ const Login = () => {
                 placeholder="kuldeep@gmail.com"
                 value={user.email}
                 onChange={(e) => setUser({ ...user, email: e.target.value })}
+                required
               />
               <label htmlFor="password-input" className="my-3">
                 Password
@@ -66,6 +71,7 @@ const Login = () => {
                 placeholder="*********"
                 value={user.password}
                 onChange={(e) => setUser({ ...user, password: e.target.value })}
+                required
               />
               <div className="form-options flex flexJustifyBetween flexAlignItemsCenter mt-3 mb-5">
                 <label htmlFor="remember">

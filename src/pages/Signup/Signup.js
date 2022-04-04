@@ -25,15 +25,27 @@ const Signup = () => {
 
   const signupHandler = async (e, userObj) => {
     e.preventDefault();
-    const { createdUser: user, encodedToken } = await signupFunc(
-      userObj,
-      showToast
-    );
-    if (encodedToken) {
-      signupDispatch({ type: "AUTH_SUCCESS", payload: { user, encodedToken } });
-      localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("token", encodedToken);
-      navigate("/home");
+    if (
+      firstName !== "" ||
+      lastName !== "" ||
+      email !== "" ||
+      password !== ""
+    ) {
+      const { createdUser: user, encodedToken } = await signupFunc(
+        userObj,
+        showToast
+      );
+      if (encodedToken) {
+        signupDispatch({
+          type: "AUTH_SUCCESS",
+          payload: { user, encodedToken },
+        });
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("token", encodedToken);
+        navigate("/home");
+      }
+    } else {
+      showToast("Fill all the fields", "warn");
     }
   };
 
@@ -62,6 +74,7 @@ const Signup = () => {
                   onChange={(e) =>
                     dispatch({ type: "FIRST_NAME", payload: e.target.value })
                   }
+                  required
                 />
                 <label htmlFor="last-name-input">Last Name</label>
                 <input
@@ -73,6 +86,7 @@ const Signup = () => {
                   onChange={(e) =>
                     dispatch({ type: "LAST_NAME", payload: e.target.value })
                   }
+                  required
                 />
                 <label htmlFor="email-input" className="my-3 py-5">
                   Email address
@@ -86,6 +100,7 @@ const Signup = () => {
                   onChange={(e) =>
                     dispatch({ type: "EMAIL", payload: e.target.value })
                   }
+                  required
                 />
                 <label htmlFor="password-input" className="my-3">
                   Password
@@ -99,6 +114,7 @@ const Signup = () => {
                   onChange={(e) =>
                     dispatch({ type: "PASSWORD", payload: e.target.value })
                   }
+                  required
                 />
                 <label htmlFor="-confirm-password-input" className="my-3">
                   Confirm Password
@@ -115,6 +131,7 @@ const Signup = () => {
                       payload: e.target.value,
                     })
                   }
+                  required
                 />
                 <div className="form-options flex flexJustifyBetween flexAlignItemsCenter mt-3 mb-5">
                   <label htmlFor="remember">
