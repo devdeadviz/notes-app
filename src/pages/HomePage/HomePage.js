@@ -49,7 +49,7 @@ const HomePage = () => {
           />
         )}
         {newNotes.map((noteData) => (
-          <NoteCard note={noteData} />
+          <NoteCard key={noteData._id} note={noteData} />
         ))}
       </section>
     </section>
