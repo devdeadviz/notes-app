@@ -7,6 +7,7 @@ import "./HomePage.css";
 
 const HomePage = () => {
   const [note, setNote] = useState({ title: "", body: "", createdAt: "" });
+  const [showNoteForm, setShowNoteForm] = useState(false);
 
   const {
     state: { encodedToken },
@@ -24,11 +25,12 @@ const HomePage = () => {
     const notes = await addNote(note, encodedToken, showToast);
     noteDispatch({ type: "ADD_NOTE", payload: notes });
     setNote({ ...note, title: "", body: "", createdAt: "" });
+    setShowNoteForm(false);
   };
 
   return (
     <section className="homepage-wrapper flex">
-      <Sidebar />
+      <Sidebar setShowNoteForm={setShowNoteForm} />
       <section className="homepage-main-section flex flexCol flexAlignItemsCenter pt-2">
         <div className="homepage-search-input-wrapper flex flexAlignItemsCenter">
           <i className="fa-solid fa-magnifying-glass"></i>
@@ -39,11 +41,13 @@ const HomePage = () => {
           />
           <i className="fa-solid fa-bars"></i>
         </div>
-        <NoteForm
-          note={note}
-          setNote={setNote}
-          addNoteHandler={addNoteHandler}
-        />
+        {showNoteForm && (
+          <NoteForm
+            note={note}
+            setNote={setNote}
+            addNoteHandler={addNoteHandler}
+          />
+        )}
         {newNotes.map((noteData) => (
           <NoteCard note={noteData} />
         ))}
