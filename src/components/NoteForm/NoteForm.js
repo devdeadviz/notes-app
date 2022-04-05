@@ -1,14 +1,30 @@
+import { getFormattedDate } from "../../utils";
 import "./NoteForm.css";
 
-const NoteForm = () => {
+const NoteForm = ({ note, setNote, addNoteHandler }) => {
   return (
     <>
-      <form className="note-form-wrapper my-4">
+      <form
+        className="note-form-wrapper my-4"
+        onSubmit={(e) =>
+          addNoteHandler(e, { ...note, createdAt: getFormattedDate() })
+        }
+      >
         <div className="flex flexAlignItemsCenter">
-          <textarea className="note-form-title" placeholder="Title" />
+          <textarea
+            className="note-form-title"
+            placeholder="Title"
+            required
+            onChange={(e) => setNote({ ...note, title: e.target.value })}
+          />
           <i className="fa-solid fa-thumbtack mx-3"></i>
         </div>
-        <textarea className="note-form-body" placeholder="Take a note..." />
+        <textarea
+          className="note-form-body"
+          placeholder="Take a note..."
+          required
+          onChange={(e) => setNote({ ...note, body: e.target.value })}
+        />
         <div className="flex flexAlignItemsCenter">
           <button
             type="submit"

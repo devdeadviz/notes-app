@@ -1,7 +1,27 @@
+import { useState } from "react";
 import { NoteCard, NoteForm, Sidebar } from "../../components";
+import { useAuth, useNote } from "../../contexts";
+import { addNote } from "../../services";
 import "./HomePage.css";
 
 const HomePage = () => {
+  const [note, setNote] = useState({ title: "", body: "", createdAt: "" });
+
+  const {
+    state: { encodedToken },
+  } = useAuth();
+
+  const {
+    noteState: { newNotes },
+    noteDispatch,
+  } = useNote();
+
+  const addNoteHandler = async (e, note) => {
+    e.preventDefault();
+    const notes = await addNote(note, encodedToken);
+    noteDispatch({ type: "ADD_NOTE", payload: notes });
+  };
+
   return (
     <section className="homepage-wrapper flex">
       <Sidebar />
@@ -15,8 +35,14 @@ const HomePage = () => {
           />
           <i className="fa-solid fa-bars"></i>
         </div>
-        <NoteForm />
-        <NoteCard />
+        <NoteForm
+          note={note}
+          setNote={setNote}
+          addNoteHandler={addNoteHandler}
+        />
+        {newNotes.map((noteData) => (
+          <NoteCard note={noteData} />
+        ))}
       </section>
     </section>
   );
