@@ -17,12 +17,13 @@ const HomePage = () => {
     noteDispatch,
   } = useNote();
 
-const { showToast } = useToast()
+  const { showToast } = useToast();
 
   const addNoteHandler = async (e, note) => {
     e.preventDefault();
     const notes = await addNote(note, encodedToken, showToast);
     noteDispatch({ type: "ADD_NOTE", payload: notes });
+    setNote({ ...note, title: "", body: "", createdAt: "" });
   };
 
   return (

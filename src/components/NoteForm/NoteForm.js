@@ -15,6 +15,7 @@ const NoteForm = ({ note, setNote, addNoteHandler }) => {
             className="note-form-title"
             placeholder="Title"
             required
+            value={note.title}
             onChange={(e) => setNote({ ...note, title: e.target.value })}
           />
           <i className="fa-solid fa-thumbtack mx-3"></i>
@@ -23,6 +24,7 @@ const NoteForm = ({ note, setNote, addNoteHandler }) => {
           className="note-form-body"
           placeholder="Take a note..."
           required
+          value={note.body}
           onChange={(e) => setNote({ ...note, body: e.target.value })}
         />
         <div className="flex flexAlignItemsCenter">
