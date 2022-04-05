@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NoteCard, NoteForm, Sidebar } from "../../components";
 import { useAuth, useNote } from "../../contexts";
+import { useToast } from "../../custom-hooks";
 import { addNote } from "../../services";
 import "./HomePage.css";
 
@@ -16,9 +17,11 @@ const HomePage = () => {
     noteDispatch,
   } = useNote();
 
+const { showToast } = useToast()
+
   const addNoteHandler = async (e, note) => {
     e.preventDefault();
-    const notes = await addNote(note, encodedToken);
+    const notes = await addNote(note, encodedToken, showToast);
     noteDispatch({ type: "ADD_NOTE", payload: notes });
   };
 
