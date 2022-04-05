@@ -2,9 +2,10 @@
 
 :root {
   --primary-color: #2232cf;
-  --text-color: black;
+  --text-color: #000;
   --white-color: #fff;
   --icons-color: #5f5e5e;
+  --date-color: #868686;
 }
 
 body {

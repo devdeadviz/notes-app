@@ -5,6 +5,10 @@
   border: none;
 }
 
+.note-card-date {
+  color: var(--date-color)
+}
+
 .note-card-options {
   margin-left: auto;
   font-size: 1.5rem;
