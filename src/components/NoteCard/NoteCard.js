@@ -1,6 +1,6 @@
 import "./NoteCard.css";
 
-const NoteCard = ({ note }) => {
+const NoteCard = ({ note, editNoteHandler }) => {
   const { title, body, createdAt } = note;
 
   return (
@@ -15,7 +15,10 @@ const NoteCard = ({ note }) => {
       <div className="note-card-footer flex flexAlignItemsCenter">
         <p className="note-card-date ml-2">Created on: {createdAt}</p>
         <div className="note-card-options">
-          <i className="fa-solid fa-pencil mx-3"></i>
+          <i
+            className="fa-solid fa-pencil mx-3"
+            onClick={() => editNoteHandler({ ...note, _id: note._id })}
+          ></i>
           <i className="fa-solid fa-palette mx-3"></i>
           <i className="fa-solid fa-tag mx-3"></i>
           <i className="fa-solid fa-box-archive mx-3"></i>

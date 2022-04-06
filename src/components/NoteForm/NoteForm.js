@@ -1,13 +1,21 @@
+import { useNote } from "../../contexts";
 import { getFormattedDate } from "../../utils";
 import "./NoteForm.css";
 
-const NoteForm = ({ note, setNote, addNoteHandler }) => {
+const NoteForm = ({ note, setNote, addNoteHandler, updateNoteHandler }) => {
+  const {
+    noteState: { editedNotes },
+  } = useNote();
+
   return (
     <>
       <form
         className="note-form-wrapper my-4"
-        onSubmit={(e) =>
-          addNoteHandler(e, { ...note, createdAt: getFormattedDate() })
+        onSubmit={
+          editedNotes
+            ? (e) => updateNoteHandler(e, { ...note, createdAt: getFormattedDate() })
+            : (e) =>
+                addNoteHandler(e, { ...note, createdAt: getFormattedDate() })
         }
       >
         <div className="flex flexAlignItemsCenter">
@@ -32,7 +40,7 @@ const NoteForm = ({ note, setNote, addNoteHandler }) => {
             type="submit"
             className="btn btn-outline-primary add-note-btn m-2"
           >
-            Add Note
+            {editedNotes ? "Save Note" : "Add Note"}
           </button>
           <div className="note-form-options">
             <i className="fa-solid fa-palette mx-3"></i>
