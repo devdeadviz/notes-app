@@ -44,7 +44,8 @@ const HomePage = () => {
     const editedNote = await editNote(
       editedNotesData._id,
       editedNotesData,
-      encodedToken
+      encodedToken,
+      showToast
     );
     noteDispatch({ type: "UPDATE_NOTE", payload: editedNote });
     setNote({ ...note, title: "", body: "", createdAt: "" });

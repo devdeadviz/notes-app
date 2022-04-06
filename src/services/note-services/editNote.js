@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const editNote = async (notesId, note, encodedToken) => {
+const editNote = async (notesId, note, encodedToken, showToast) => {
   try {
     const { data } = await axios.post(
       `/api/notes/${notesId}`,
@@ -9,9 +9,10 @@ const editNote = async (notesId, note, encodedToken) => {
         headers: { authorization: encodedToken },
       }
     );
+    showToast("Note Edited!", "success");
     return data.notes;
   } catch (error) {
-    console.log(error.data);
+    showToast(error.data.errors[0], "error");
   }
 };
 
