@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = ({ setShowNoteForm }) => {
   const {
     state: { user },
   } = useAuth();
@@ -39,7 +39,11 @@ const Sidebar = () => {
             Profile
           </li>
         </ul>
-        <button type="button" className="btn btn-primary create-btn m-2">
+        <button
+          type="button"
+          className="btn btn-primary create-btn m-2"
+          onClick={() => setShowNoteForm(true)}
+        >
           Create New Note
         </button>
       </section>
