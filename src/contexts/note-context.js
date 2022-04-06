@@ -3,7 +3,7 @@ import { noteReducer } from "../reducers";
 
 const initialNoteState = {
   newNotes: [],
-  editedNotes: [],
+  editedNotes: false,
 };
 
 const NoteContext = createContext();
