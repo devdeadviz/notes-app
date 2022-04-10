@@ -4,6 +4,7 @@ import { noteReducer } from "../reducers";
 const initialNoteState = {
   newNotes: [],
   editedNotes: false,
+  trashNotes: [],
 };
 
 const NoteContext = createContext();
