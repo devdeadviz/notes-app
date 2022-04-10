@@ -1,0 +1,8 @@
+.trash-wrapper {
+  margin: 0 5rem;
+}
+
+.trash-main-section {
+  flex-grow: 1;
+  margin: 1.5rem 0;
+}

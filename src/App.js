@@ -9,7 +9,7 @@ import {
 import { ToastContainer } from "react-toastify";
 import { Navbar } from "./components";
 import { useAuth } from "./contexts";
-import { HomePage, LandingPage, Login, Signup } from "./pages";
+import { HomePage, LandingPage, Login, Signup, Trash } from "./pages";
 
 const ProtectedRoute = () => {
   const navigate = useNavigate();
@@ -46,6 +46,7 @@ const App = () => {
         <Route path="/mockman" element={<Mockman />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/home" element={<HomePage />} />
+          <Route path="/trash" element={<Trash />} />
         </Route>
       </Routes>
     </>
