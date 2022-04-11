@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts";
 import "./Sidebar.css";
 
@@ -14,29 +14,45 @@ const Sidebar = ({ setShowNoteForm }) => {
     navigate(0);
   };
 
+  const getActiveStyle = ({ isActive }) => ({
+    textDecoration: "none",
+    color: "#000",
+    fontWeight: isActive ? 900 : "",
+  });
+
   return (
     <aside className="sidebar-wrapper flex flexCol flexJustifyBetween p-5">
       <section>
         <ul className="sidebar-lists">
           <li className="sidebar-lists-items">
-            <i className="fa fa-house mr-4"></i>
-            Home
+            <NavLink style={getActiveStyle} to="/home">
+              <i className="fa fa-house mr-4"></i>
+              Home
+            </NavLink>
           </li>
           <li className="sidebar-lists-items">
-            <i className="fa fa-tag mr-4"></i>
-            Labels
+            <NavLink style={getActiveStyle} to="/labels">
+              <i className="fa fa-tag mr-4"></i>
+              Labels
+            </NavLink>
           </li>
           <li className="sidebar-lists-items">
-            <i className="fa fa-box-archive mr-4"></i>
-            Archive
+            <NavLink style={getActiveStyle} to="/archive">
+              <i className="fa fa-box-archive mr-4"></i>
+              Archive
+            </NavLink>
           </li>
           <li className="sidebar-lists-items">
-            <i className="fa fa-trash-can mr-4"></i>
-            Trash
+            <NavLink style={getActiveStyle} to="/trash">
+              <i className="fa fa-trash-can mr-4"></i>
+              Trash
+            </NavLink>
           </li>
           <li className="sidebar-lists-items">
-            <i className="fa fa-user mr-4"></i>
-            Profile
+            <NavLink style={getActiveStyle} to="/profile">
+              <i className="fa fa-user mr-4"></i>
+              Profile
+            </NavLink>
           </li>
         </ul>
         <button
