@@ -1,4 +1,4 @@
-import { NoteCard, SearchInput, Sidebar } from "../../components";
+import { TrashCard, SearchInput, Sidebar } from "../../components";
 import { useNote } from "../../contexts";
 import "./Trash.css";
 
@@ -14,7 +14,7 @@ const Trash = () => {
       <section className="trash-main-section flex flexCol flexAlignItemsCenter pt-2">
         <SearchInput />
         {trashNotes.map((trashNoteData) => (
-          <NoteCard key={trashNoteData._id} trashNote={trashNoteData} />
+          <TrashCard key={trashNoteData._id} note={trashNoteData} />
         ))}
       </section>
     </section>
