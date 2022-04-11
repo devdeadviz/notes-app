@@ -52,6 +52,11 @@ const HomePage = () => {
     setShowNoteForm(false);
   };
 
+  const moveNoteToTrash = (trashNoteData) => {
+    noteDispatch({ type: "TRASH_NOTE", payload: trashNoteData });
+    showToast("Note moved to Trash!", "success");
+  };
+
   return (
     <section className="homepage-wrapper flex">
       <Sidebar setShowNoteForm={setShowNoteForm} />
@@ -70,6 +75,7 @@ const HomePage = () => {
             key={noteData._id}
             note={noteData}
             editNoteHandler={editNoteHandler}
+            moveNoteToTrash={moveNoteToTrash}
           />
         ))}
       </section>

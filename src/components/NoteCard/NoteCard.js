@@ -1,6 +1,6 @@
 import "./NoteCard.css";
 
-const NoteCard = ({ note, editNoteHandler }) => {
+const NoteCard = ({ note, editNoteHandler, moveNoteToTrash }) => {
   const { title, body, createdAt } = note;
 
   return (
@@ -22,7 +22,10 @@ const NoteCard = ({ note, editNoteHandler }) => {
           <i className="fa-solid fa-palette mx-3"></i>
           <i className="fa-solid fa-tag mx-3"></i>
           <i className="fa-solid fa-box-archive mx-3"></i>
-          <i className="fa-solid fa-trash mx-3"></i>
+          <i
+            className="fa-solid fa-trash mx-3"
+            onClick={() => moveNoteToTrash(note)}
+          ></i>
         </div>
       </div>
     </div>
