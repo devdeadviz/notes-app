@@ -4,8 +4,7 @@ import "./Trash.css";
 
 const Trash = () => {
   const {
-    noteState: { trashNotes },
-    noteDispatch,
+    noteState: { trashNotes }
   } = useNote();
 
   return (

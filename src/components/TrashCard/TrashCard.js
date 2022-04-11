@@ -15,7 +15,7 @@ const TrashCard = ({ note }) => {
       <div className="trash-card-footer flex flexAlignItemsCenter">
         <p className="trash-card-date ml-2">Deleted on: {createdAt}</p>
         <div className="trash-card-options">
-          <i class="fa-solid fa-trash-arrow-up mx-3"></i>
+          <i className="fa-solid fa-trash-arrow-up mx-3"></i>
           <i className="fa-solid fa-trash mx-3"></i>
         </div>
       </div>
