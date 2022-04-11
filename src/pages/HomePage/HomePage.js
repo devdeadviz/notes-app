@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NoteCard, NoteForm, SearchInput, Sidebar } from "../../components";
 import { useAuth, useNote } from "../../contexts";
 import { useToast } from "../../custom-hooks";
-import { addNote, editNote } from "../../services";
+import { addNote, deleteNote, editNote } from "../../services";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -52,9 +52,19 @@ const HomePage = () => {
     setShowNoteForm(false);
   };
 
+  const deleteNoteHandler = async (notesId) => {
+    const deletedNoteData = await deleteNote(notesId, encodedToken);
+    noteDispatch({ type: "DELETE_NOTE", payload: deletedNoteData });
+  };
+
   const moveNoteToTrash = (trashNoteData) => {
     noteDispatch({ type: "TRASH_NOTE", payload: trashNoteData });
     showToast("Note moved to Trash!", "success");
+    newNotes.find((newNoteData) =>
+      newNoteData._id === trashNoteData._id
+        ? deleteNoteHandler(trashNoteData._id)
+        : ""
+    );
   };
 
   return (
