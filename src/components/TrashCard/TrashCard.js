@@ -1,6 +1,8 @@
 import "./TrashCard.css";
 
-const TrashCard = ({ title, body, createdAt }) => {
+const TrashCard = ({ note }) => {
+  const { title, body, createdAt } = note;
+
   return (
     <div className="vertical-card-wrapper trash-card-wrapper p-2 my-4">
       <div className="vertical-card-header flex flexAlignItemsCenter">
