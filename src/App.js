@@ -3,7 +3,7 @@ import { Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Navbar } from "./components";
 import { useAuth } from "./contexts";
-import { HomePage, LandingPage, Login, Signup, Trash } from "./pages";
+import { Archive, HomePage, LandingPage, Login, Signup, Trash } from "./pages";
 
 const ProtectedRoute = () => {
   const {
@@ -39,6 +39,7 @@ const App = () => {
         <Route element={<ProtectedRoute />}>
           <Route path="/home" element={<HomePage />} />
           <Route path="/trash" element={<Trash />} />
+          <Route path="/archive" element={<Archive />} />
         </Route>
       </Routes>
     </>
