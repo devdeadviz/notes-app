@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NoteCard, NoteForm, SearchInput, Sidebar } from "../../components";
 import { useAuth, useNote } from "../../contexts";
 import { useToast } from "../../custom-hooks";
-import { addNote, deleteNote, editNote } from "../../services";
+import { addNote, archiveNote, deleteNote, editNote } from "../../services";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -67,6 +67,11 @@ const HomePage = () => {
     );
   };
 
+  const archiveNoteHandler = async (note) => {
+    const { notes, archives } = await archiveNote(note, encodedToken);
+    noteDispatch({ type: "ARCHIVE_NOTE", payload: { notes, archives } });
+  };
+
   return (
     <section className="homepage-wrapper flex">
       <Sidebar setShowNoteForm={setShowNoteForm} />
@@ -86,6 +91,7 @@ const HomePage = () => {
             note={noteData}
             editNoteHandler={editNoteHandler}
             moveNoteToTrash={moveNoteToTrash}
+            archiveNoteHandler={archiveNoteHandler}
           />
         ))}
       </section>
