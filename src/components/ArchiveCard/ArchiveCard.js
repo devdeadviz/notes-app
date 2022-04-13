@@ -13,7 +13,7 @@ const ArchiveCard = ({ note }) => {
       <div className="archive-card-footer flex flexAlignItemsCenter">
         <p className="archive-card-date ml-2">Archived on: {createdAt}</p>
         <div className="archive-card-options">
-          <i className="fa-solid fa-box-archive mx-3"></i>
+          <i className="fa-solid fa-box-open mx-3"></i>
           <i className="fa-solid fa-trash mx-3"></i>
         </div>
       </div>
