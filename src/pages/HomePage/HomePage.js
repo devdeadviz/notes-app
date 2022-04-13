@@ -69,7 +69,7 @@ const HomePage = () => {
 
   const archiveNoteHandler = async (note) => {
     const { notes, archives } = await archiveNote(note, encodedToken);
-    noteDispatch({ type: "ARCHIVE_NOTE", payload: { notes, archives } });
+    noteDispatch({ type: "ARCHIVE_AND_UNARCHIVE_NOTE", payload: { notes, archives } });
   };
 
   return (

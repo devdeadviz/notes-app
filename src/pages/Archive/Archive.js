@@ -14,7 +14,7 @@ const Archive = () => {
 
   const restoreArchiveNoteHandler = async (noteId) => {
     const { archives, notes } = await restoreArchiveNote(noteId, encodedToken);
-    noteDispatch({ type: "ARCHIVE_NOTE", payload: { archives, notes } })
+    noteDispatch({ type: "ARCHIVE_AND_UNARCHIVE_NOTE", payload: { archives, notes } })
   };
 
   return (
