@@ -4,3 +4,4 @@ export { NoteForm } from "./NoteForm/NoteForm";
 export { NoteCard } from "./NoteCard/NoteCard";
 export { SearchInput } from "./SearchInput/SearchInput";
 export { TrashCard } from "./TrashCard/TrashCard";
+export { ArchiveCard } from "./ArchiveCard/ArchiveCard";
