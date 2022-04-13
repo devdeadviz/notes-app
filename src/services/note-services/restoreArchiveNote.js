@@ -5,7 +5,7 @@ const restoreArchiveNote = async (noteId, encodedToken) => {
     const { data } = await axios.post(`/api/archives/restore/${noteId}`, {
       headers: { authorization: encodedToken },
     });
-    return data.notes;
+    return data;
   } catch (error) {
     console.error(error.data);
   }
