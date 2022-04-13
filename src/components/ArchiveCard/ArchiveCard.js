@@ -1,7 +1,7 @@
 import "./ArchiveCard.css";
 
-const ArchiveCard = ({ note }) => {
-  const { title, body, createdAt } = note;
+const ArchiveCard = ({ note, restoreArchiveNoteHandler }) => {
+  const { title, body, createdAt, _id } = note;
   return (
     <div className="vertical-card-wrapper archive-card-wrapper p-2 my-4">
       <div className="vertical-card-header flex flexAlignItemsCenter">
@@ -13,7 +13,10 @@ const ArchiveCard = ({ note }) => {
       <div className="archive-card-footer flex flexAlignItemsCenter">
         <p className="archive-card-date ml-2">Archived on: {createdAt}</p>
         <div className="archive-card-options">
-          <i className="fa-solid fa-box-open mx-3"></i>
+          <i
+            className="fa-solid fa-box-open mx-3"
+            onClick={() => restoreArchiveNoteHandler(_id)}
+          ></i>
           <i className="fa-solid fa-trash mx-3"></i>
         </div>
       </div>
