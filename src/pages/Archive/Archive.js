@@ -1,11 +1,12 @@
 import { ArchiveCard, SearchInput, Sidebar } from "../../components";
 import { useAuth, useNote } from "../../contexts";
-import { restoreArchiveNote } from "../../services";
+import { deleteArchiveNote, restoreArchiveNote } from "../../services";
 import "./Archive.css";
 
 const Archive = () => {
   const {
-    noteState: { archiveNotes }, noteDispatch
+    noteState: { archiveNotes },
+    noteDispatch,
   } = useNote();
 
   const {
@@ -14,7 +15,24 @@ const Archive = () => {
 
   const restoreArchiveNoteHandler = async (noteId) => {
     const { archives, notes } = await restoreArchiveNote(noteId, encodedToken);
-    noteDispatch({ type: "ARCHIVE_AND_UNARCHIVE_NOTE", payload: { archives, notes } })
+    noteDispatch({
+      type: "ARCHIVE_AND_UNARCHIVE_NOTE",
+      payload: { archives, notes },
+    });
+  };
+
+  const deleteArchiveNoteHandler = async (noteId) => {
+    const updatedArchiveNote = await deleteArchiveNote(noteId, encodedToken);
+    noteDispatch({ type: "DELETE_ARCHIVE_NOTE", payload: updatedArchiveNote });
+  };
+
+  const moveArchiveNoteToTrash = (trashNoteData) => {
+    noteDispatch({ type: "TRASH_NOTE", payload: trashNoteData });
+    archiveNotes.find((archiveNoteData) =>
+      archiveNoteData._id === trashNoteData._id
+        ? deleteArchiveNoteHandler(archiveNoteData._id)
+        : ""
+    );
   };
 
   return (
@@ -27,6 +45,7 @@ const Archive = () => {
             key={archiveNoteData._id}
             note={archiveNoteData}
             restoreArchiveNoteHandler={restoreArchiveNoteHandler}
+            moveArchiveNoteToTrash={moveArchiveNoteToTrash}
           />
         ))}
       </section>

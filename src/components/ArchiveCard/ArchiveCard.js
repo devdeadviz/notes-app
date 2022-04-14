@@ -1,6 +1,10 @@
 import "./ArchiveCard.css";
 
-const ArchiveCard = ({ note, restoreArchiveNoteHandler }) => {
+const ArchiveCard = ({
+  note,
+  restoreArchiveNoteHandler,
+  moveArchiveNoteToTrash,
+}) => {
   const { title, body, createdAt, _id } = note;
   return (
     <div className="vertical-card-wrapper archive-card-wrapper p-2 my-4">
@@ -17,7 +21,10 @@ const ArchiveCard = ({ note, restoreArchiveNoteHandler }) => {
             className="fa-solid fa-box-open mx-3"
             onClick={() => restoreArchiveNoteHandler(_id)}
           ></i>
-          <i className="fa-solid fa-trash mx-3"></i>
+          <i
+            className="fa-solid fa-trash mx-3"
+            onClick={() => moveArchiveNoteToTrash(note)}
+          ></i>
         </div>
       </div>
     </div>
