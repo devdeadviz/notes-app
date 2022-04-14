@@ -18,6 +18,8 @@ const noteReducer = (state, action) => {
       };
     case "DELETE_ARCHIVE_NOTE":
       return { ...state, archiveNotes: action.payload };
+    case "DELETE_FOREVER":
+      return { ...state, trashNotes: action.payload };
     default:
       return state;
   }
