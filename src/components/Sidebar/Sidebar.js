@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts";
 import "./Sidebar.css";
 
-const Sidebar = ({ setShowNoteForm }) => {
+const Sidebar = ({ setShowNoteForm, showBtn }) => {
   const {
     state: { user },
   } = useAuth();
@@ -55,13 +55,13 @@ const Sidebar = ({ setShowNoteForm }) => {
             </NavLink>
           </li>
         </ul>
-        <button
+        { showBtn && <button
           type="button"
           className="btn btn-primary create-btn m-2"
           onClick={() => setShowNoteForm(true)}
         >
           Create New Note
-        </button>
+        </button> }
       </section>
       <section className="sidebar-footer flex flexAlignItemsCenter">
         <div className="flex flexAlignItemsCenter">

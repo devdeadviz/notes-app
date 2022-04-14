@@ -33,7 +33,7 @@ const Trash = () => {
 
   return (
     <section className="trash-wrapper flex">
-      <Sidebar />
+      <Sidebar showBtn={false} />
       <section className="trash-main-section flex flexCol flexAlignItemsCenter pt-2">
         <SearchInput />
         {trashNotes.map((trashNoteData) => (

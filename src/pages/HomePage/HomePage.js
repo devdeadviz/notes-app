@@ -76,7 +76,7 @@ const HomePage = () => {
 
   return (
     <section className="homepage-wrapper flex">
-      <Sidebar setShowNoteForm={setShowNoteForm} />
+      <Sidebar showBtn={true} setShowNoteForm={setShowNoteForm} />
       <section className="homepage-main-section flex flexCol flexAlignItemsCenter pt-2">
         <SearchInput />
         {showNoteForm && (

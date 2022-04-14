@@ -43,7 +43,7 @@ const Archive = () => {
 
   return (
     <section className="archive-wrapper flex">
-      <Sidebar />
+      <Sidebar showBtn={false} />
       <section className="archive-main-section flex flexCol flexAlignItemsCenter pt-2">
         <SearchInput />
         {archiveNotes.map((archiveNoteData) => (
