@@ -21,12 +21,14 @@ const Trash = () => {
       (trashData) => trashData._id !== noteId
     );
     noteDispatch({ type: "DELETE_FOREVER", payload: updatedTrashData });
+    showToast("Note Deleted From Trash!", "success")
   };
 
   const restoreTrashNoteHandler = async (note) => {
     const restoredNotes = await addNote(note, encodedToken, showToast);
     noteDispatch({ type: "ADD_NOTE", payload: restoredNotes });
     deleteNoteFromTrashHandler(note._id);
+    showToast("Restored Note From Trash!", "success")
   };
 
   return (

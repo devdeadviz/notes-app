@@ -24,6 +24,7 @@ const HomePage = () => {
     e.preventDefault();
     const notes = await addNote(note, encodedToken, showToast);
     noteDispatch({ type: "ADD_NOTE", payload: notes });
+    showToast("Note Added!", "success");
     setNote({ ...note, title: "", body: "", createdAt: "" });
     setShowNoteForm(false);
   };
