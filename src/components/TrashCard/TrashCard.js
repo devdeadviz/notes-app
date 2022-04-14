@@ -1,6 +1,10 @@
 import "./TrashCard.css";
 
-const TrashCard = ({ note, deleteNoteFromTrashHandler }) => {
+const TrashCard = ({
+  note,
+  deleteNoteFromTrashHandler,
+  restoreTrashNoteHandler,
+}) => {
   const { title, body, createdAt, _id } = note;
 
   return (
@@ -15,7 +19,10 @@ const TrashCard = ({ note, deleteNoteFromTrashHandler }) => {
       <div className="trash-card-footer flex flexAlignItemsCenter">
         <p className="trash-card-date ml-2">Deleted on: {createdAt}</p>
         <div className="trash-card-options">
-          <i className="fa-solid fa-trash-arrow-up mx-3"></i>
+          <i
+            className="fa-solid fa-trash-arrow-up mx-3"
+            onClick={() => restoreTrashNoteHandler(note)}
+          ></i>
           <i
             className="fa-solid fa-trash mx-3"
             onClick={() => deleteNoteFromTrashHandler(_id)}
