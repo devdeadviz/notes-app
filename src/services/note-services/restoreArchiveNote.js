@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const restoreArchiveNote = async (noteId, encodedToken) => {
+const restoreArchiveNote = async (noteId, encodedToken, showToast) => {
   try {
     const { data } = await axios.post(
       `/api/archives/restore/${noteId}`,
@@ -11,7 +11,7 @@ const restoreArchiveNote = async (noteId, encodedToken) => {
     );
     return data;
   } catch (error) {
-    console.error(error.data);
+    showToast(error.response.data, "error");
   }
 };
 

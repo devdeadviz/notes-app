@@ -12,7 +12,7 @@ const editNote = async (notesId, note, encodedToken, showToast) => {
     showToast("Note Edited!", "success");
     return data.notes;
   } catch (error) {
-    showToast(error.data.errors[0], "error");
+    showToast(error.response.data, "error");
   }
 };
 

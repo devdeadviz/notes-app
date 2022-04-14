@@ -69,8 +69,9 @@ const HomePage = () => {
   };
 
   const archiveNoteHandler = async (note) => {
-    const { notes, archives } = await archiveNote(note, encodedToken);
+    const { notes, archives } = await archiveNote(note, encodedToken, showToast);
     noteDispatch({ type: "ARCHIVE_AND_UNARCHIVE_NOTE", payload: { notes, archives } });
+    showToast("Note moved to Archive!", "success")
   };
 
   return (
