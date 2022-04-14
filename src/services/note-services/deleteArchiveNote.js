@@ -5,9 +5,9 @@ const deleteArchiveNote = async (noteId, encodedToken) => {
     const { data } = await axios.delete(`/api/archives/delete/${noteId}`, {
       headers: { authorization: encodedToken },
     });
-    return data.notes;
+    return data.archives;
   } catch (error) {
-    console.error(error.data);
+    console.error(error.response.data);
   }
 };
 
