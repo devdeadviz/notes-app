@@ -9,10 +9,9 @@ const addNote = async (note, encodedToken, showToast) => {
         headers: { authorization: encodedToken },
       }
     );
-    showToast("Note Added!", "success");
     return data.notes;
   } catch (error) {
-    showToast(error.data.errors[0], "error");
+    showToast(error.response.data, "error");
   }
 };
 

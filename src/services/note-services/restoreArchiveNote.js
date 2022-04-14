@@ -1,19 +1,18 @@
 import axios from "axios";
 
-const editNote = async (notesId, note, encodedToken, showToast) => {
+const restoreArchiveNote = async (noteId, encodedToken, showToast) => {
   try {
     const { data } = await axios.post(
-      `/api/notes/${notesId}`,
-      { note },
+      `/api/archives/restore/${noteId}`,
+      {},
       {
         headers: { authorization: encodedToken },
       }
     );
-    showToast("Note Edited!", "success");
-    return data.notes;
+    return data;
   } catch (error) {
     showToast(error.response.data, "error");
   }
 };
 
-export { editNote };
+export { restoreArchiveNote };

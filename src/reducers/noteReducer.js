@@ -6,6 +6,20 @@ const noteReducer = (state, action) => {
       return { ...state, editedNotes: true };
     case "UPDATE_NOTE":
       return { ...state, newNotes: action.payload, editedNotes: false };
+    case "TRASH_NOTE":
+      return { ...state, trashNotes: [...state.trashNotes, action.payload] };
+    case "DELETE_NOTE":
+      return { ...state, newNotes: action.payload };
+    case "ARCHIVE_AND_UNARCHIVE_NOTE":
+      return {
+        ...state,
+        archiveNotes: action.payload.archives,
+        newNotes: action.payload.notes,
+      };
+    case "DELETE_ARCHIVE_NOTE":
+      return { ...state, archiveNotes: action.payload };
+    case "DELETE_FOREVER":
+      return { ...state, trashNotes: action.payload };
     default:
       return state;
   }

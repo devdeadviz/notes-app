@@ -1,24 +1,16 @@
 import Mockman from "mockman-js";
-import {
-  Outlet,
-  Route,
-  Routes,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Navbar } from "./components";
 import { useAuth } from "./contexts";
-import { HomePage, LandingPage, Login, Signup } from "./pages";
+import { Archive, HomePage, LandingPage, Login, Signup, Trash } from "./pages";
 
 const ProtectedRoute = () => {
-  const navigate = useNavigate();
-
   const {
     state: { isAuth },
   } = useAuth();
 
-  return isAuth ? <Outlet /> : navigate("/");
+  return isAuth ? <Outlet /> : <Navigate to="/" replace />;
 };
 
 const App = () => {
@@ -46,6 +38,8 @@ const App = () => {
         <Route path="/mockman" element={<Mockman />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/home" element={<HomePage />} />
+          <Route path="/trash" element={<Trash />} />
+          <Route path="/archive" element={<Archive />} />
         </Route>
       </Routes>
     </>
