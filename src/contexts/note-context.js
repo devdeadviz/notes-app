@@ -5,7 +5,8 @@ const initialNoteState = {
   newNotes: [],
   editedNotes: false,
   trashNotes: [],
-  archiveNotes: []
+  archiveNotes: [],
+  noteColor: ""
 };
 
 const NoteContext = createContext();

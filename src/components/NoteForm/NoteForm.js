@@ -1,11 +1,30 @@
 import { useNote } from "../../contexts";
 import { getFormattedDate } from "../../utils";
+import { ColorPalette } from "../ColorPalette/ColorPalette";
+import { useState } from "react";
 import "./NoteForm.css";
 
-const NoteForm = ({ note, setNote, addNoteHandler, updateNoteHandler }) => {
+const NoteForm = ({
+  note,
+  setNote,
+  addNoteHandler,
+  updateNoteHandler,
+  setShowNoteForm,
+}) => {
   const {
     noteState: { editedNotes },
   } = useNote();
+
+  const [showColorPalette, setShowColorPalette] = useState(false);
+
+  const {
+    noteState: { noteColor },
+    noteDispatch,
+  } = useNote();
+
+  const getNoteColor = (color) => {
+    noteDispatch({ type: "NOTE_COLOR", payload: color });
+  };
 
   return (
     <>
@@ -13,10 +32,20 @@ const NoteForm = ({ note, setNote, addNoteHandler, updateNoteHandler }) => {
         className="note-form-wrapper my-4"
         onSubmit={
           editedNotes
-            ? (e) => updateNoteHandler(e, { ...note, createdAt: getFormattedDate() })
+            ? (e) =>
+                updateNoteHandler(e, {
+                  ...note,
+                  createdAt: getFormattedDate(),
+                  noteColor,
+                })
             : (e) =>
-                addNoteHandler(e, { ...note, createdAt: getFormattedDate() })
+                addNoteHandler(e, {
+                  ...note,
+                  createdAt: getFormattedDate(),
+                  noteColor,
+                })
         }
+        style={{ backgroundColor: noteColor }}
       >
         <div className="flex flexAlignItemsCenter">
           <textarea
@@ -42,14 +71,23 @@ const NoteForm = ({ note, setNote, addNoteHandler, updateNoteHandler }) => {
           >
             {editedNotes ? "Save Note" : "Add Note"}
           </button>
+          <button
+            type="button"
+            className="btn btn-outline-secondary cancel-note-btn m-2"
+            onClick={() => setShowNoteForm(false)}
+          >
+            Cancel
+          </button>
           <div className="note-form-options">
-            <i className="fa-solid fa-palette mx-3"></i>
+            <i
+              className="fa-solid fa-palette mx-3"
+              onClick={() => setShowColorPalette((prev) => !prev)}
+            ></i>
             <i className="fa-solid fa-tag mx-3"></i>
-            <i className="fa-solid fa-box-archive mx-3"></i>
-            <i className="fa-solid fa-trash mx-3"></i>
           </div>
         </div>
       </form>
+      {showColorPalette && <ColorPalette getNoteColor={getNoteColor} />}
     </>
   );
 };

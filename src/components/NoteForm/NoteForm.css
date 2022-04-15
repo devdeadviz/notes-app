@@ -25,10 +25,14 @@
   margin-top: 0;
 }
 
-.add-note-btn {
+.add-note-btn, .cancel-note-btn {
   font-size: small;
   padding: 5px;
   border: none;
+}
+
+.cancel-note-btn {
+  color: var(--text-color)
 }
 
 .note-form-options,

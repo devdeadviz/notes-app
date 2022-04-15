@@ -85,6 +85,7 @@ const HomePage = () => {
             setNote={setNote}
             addNoteHandler={addNoteHandler}
             updateNoteHandler={updateNoteHandler}
+            setShowNoteForm={setShowNoteForm}
           />
         )}
         {newNotes.map((noteData) => (

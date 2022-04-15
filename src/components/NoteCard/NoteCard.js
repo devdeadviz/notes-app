@@ -6,10 +6,13 @@ const NoteCard = ({
   moveNoteToTrash,
   archiveNoteHandler,
 }) => {
-  const { title, body, createdAt } = note;
+  const { title, body, createdAt, noteColor } = note;
 
   return (
-    <div className="vertical-card-wrapper note-card-wrapper p-2 my-4">
+    <div
+      className="vertical-card-wrapper note-card-wrapper p-2 my-4"
+      style={{ backgroundColor: noteColor }}
+    >
       <div className="vertical-card-header flex flexAlignItemsCenter">
         <h2 className="m-2">{title}</h2>
         <i className="fa-solid fa-thumbtack mx-3"></i>
@@ -24,7 +27,6 @@ const NoteCard = ({
             className="fa-solid fa-pencil mx-3"
             onClick={() => editNoteHandler({ ...note, _id: note._id })}
           ></i>
-          <i className="fa-solid fa-palette mx-3"></i>
           <i className="fa-solid fa-tag mx-3"></i>
           <i
             className="fa-solid fa-box-archive mx-3"
