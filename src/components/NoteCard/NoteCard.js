@@ -6,10 +6,13 @@ const NoteCard = ({
   moveNoteToTrash,
   archiveNoteHandler,
 }) => {
-  const { title, body, createdAt } = note;
+  const { title, body, createdAt, noteColor } = note;
 
   return (
-    <div className="vertical-card-wrapper note-card-wrapper p-2 my-4">
+    <div
+      className="vertical-card-wrapper note-card-wrapper p-2 my-4"
+      style={{ backgroundColor: noteColor }}
+    >
       <div className="vertical-card-header flex flexAlignItemsCenter">
         <h2 className="m-2">{title}</h2>
         <i className="fa-solid fa-thumbtack mx-3"></i>
