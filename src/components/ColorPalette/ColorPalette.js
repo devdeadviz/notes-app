@@ -5,7 +5,11 @@ const ColorPalette = ({ getNoteColor }) => {
   const noteColors = [
     {
       id: uuid(),
-      color: "#cfe1b9",
+      color: "#9980cc",
+    },
+    {
+      id: uuid(),
+      color: "#187dd8",
     },
     {
       id: uuid(),
@@ -13,11 +17,7 @@ const ColorPalette = ({ getNoteColor }) => {
     },
     {
       id: uuid(),
-      color: "#cfe1b9",
-    },
-    {
-      id: uuid(),
-      color: "#ccff90",
+      color: "#00a86b",
     },
     {
       id: uuid(),
