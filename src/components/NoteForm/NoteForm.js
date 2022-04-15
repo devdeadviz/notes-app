@@ -63,8 +63,6 @@ const NoteForm = ({ note, setNote, addNoteHandler, updateNoteHandler }) => {
               onClick={() => setShowColorPalette((prev) => !prev)}
             ></i>
             <i className="fa-solid fa-tag mx-3"></i>
-            <i className="fa-solid fa-box-archive mx-3"></i>
-            <i className="fa-solid fa-trash mx-3"></i>
           </div>
         </div>
       </form>
