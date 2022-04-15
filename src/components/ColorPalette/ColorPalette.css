@@ -1,0 +1,19 @@
+.color-palette-wrapper {
+  width: fit-content;
+  background-color: var(--icons-color);
+  border-radius: 5px;
+}
+
+.color-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin: 5px;
+  outline: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.color-btn:hover {
+  border: 2px solid var(--text-color);
+}
