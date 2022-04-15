@@ -27,7 +27,7 @@ const NoteForm = ({ note, setNote, addNoteHandler, updateNoteHandler }) => {
         onSubmit={
           editedNotes
             ? (e) =>
-                updateNoteHandler(e, { ...note, createdAt: getFormattedDate() })
+                updateNoteHandler(e, { ...note, createdAt: getFormattedDate(), noteColor })
             : (e) =>
                 addNoteHandler(e, { ...note, createdAt: getFormattedDate(), noteColor })
         }

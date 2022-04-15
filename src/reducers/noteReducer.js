@@ -5,7 +5,7 @@ const noteReducer = (state, action) => {
     case "EDIT_NOTE":
       return { ...state, editedNotes: true };
     case "UPDATE_NOTE":
-      return { ...state, newNotes: action.payload, editedNotes: false };
+      return { ...state, newNotes: action.payload, editedNotes: false, noteColor: "" };
     case "TRASH_NOTE":
       return { ...state, trashNotes: [...state.trashNotes, action.payload] };
     case "DELETE_NOTE":
