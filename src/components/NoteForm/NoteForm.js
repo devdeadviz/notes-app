@@ -4,7 +4,13 @@ import { ColorPalette } from "../ColorPalette/ColorPalette";
 import { useState } from "react";
 import "./NoteForm.css";
 
-const NoteForm = ({ note, setNote, addNoteHandler, updateNoteHandler }) => {
+const NoteForm = ({
+  note,
+  setNote,
+  addNoteHandler,
+  updateNoteHandler,
+  setShowNoteForm,
+}) => {
   const {
     noteState: { editedNotes },
   } = useNote();
@@ -27,9 +33,17 @@ const NoteForm = ({ note, setNote, addNoteHandler, updateNoteHandler }) => {
         onSubmit={
           editedNotes
             ? (e) =>
-                updateNoteHandler(e, { ...note, createdAt: getFormattedDate(), noteColor })
+                updateNoteHandler(e, {
+                  ...note,
+                  createdAt: getFormattedDate(),
+                  noteColor,
+                })
             : (e) =>
-                addNoteHandler(e, { ...note, createdAt: getFormattedDate(), noteColor })
+                addNoteHandler(e, {
+                  ...note,
+                  createdAt: getFormattedDate(),
+                  noteColor,
+                })
         }
         style={{ backgroundColor: noteColor }}
       >
@@ -56,6 +70,13 @@ const NoteForm = ({ note, setNote, addNoteHandler, updateNoteHandler }) => {
             className="btn btn-outline-primary add-note-btn m-2"
           >
             {editedNotes ? "Save Note" : "Add Note"}
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-secondary cancel-note-btn m-2"
+            onClick={() => setShowNoteForm(false)}
+          >
+            Cancel
           </button>
           <div className="note-form-options">
             <i
