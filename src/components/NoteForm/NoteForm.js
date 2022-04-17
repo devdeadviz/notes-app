@@ -3,7 +3,6 @@ import { getFormattedDate } from "../../utils";
 import { ColorPalette } from "../ColorPalette/ColorPalette";
 import { useState } from "react";
 import "./NoteForm.css";
-import { Label } from "../LabelInput/Label";
 
 const NoteForm = ({
   note,
@@ -18,10 +17,10 @@ const NoteForm = ({
 
   const [showColorPalette, setShowColorPalette] = useState(false);
 
-  const [showLabel, setShowLabel] = useState(false);
+  const [showLabelList, setShowLabelList] = useState(false);
 
   const {
-    noteState: { noteColor },
+    noteState: { noteColor, labelsList },
     noteDispatch,
   } = useNote();
 
@@ -88,13 +87,33 @@ const NoteForm = ({
             ></i>
             <i
               className="fa-solid fa-tag mx-3"
-              onClick={() => setShowLabel((prev) => !prev)}
+              onClick={() => setShowLabelList((prev) => !prev)}
             ></i>
           </div>
         </div>
       </form>
       {showColorPalette && <ColorPalette getNoteColor={getNoteColor} />}
-      {showLabel && <Label />}
+      {showLabelList && (
+        <section className="note-form-label-lists m-1">
+          <h4>Labels:</h4>
+          <section className="flex flexWrap">
+            {labelsList.map(({ label, id }) => (
+              <label
+                className="label-item flex flexAlignItemsCenter m-2"
+                key={id}
+              >
+                <input
+                  className="mr-2"
+                  type="radio"
+                  name="labels"
+                  value={label}
+                />
+                {label}
+              </label>
+            ))}
+          </section>
+        </section>
+      )}
     </>
   );
 };
