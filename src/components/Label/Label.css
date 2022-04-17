@@ -1,0 +1,15 @@
+.label-input {
+  width: 90%;
+  padding: 5px;
+  outline: none;
+  border-radius: 5px;
+  border: 0.2px solid gray;
+}
+
+.fa-circle-plus {
+  font-size: 1.5rem;
+}
+
+.label-item {
+  width: fit-content;
+}
