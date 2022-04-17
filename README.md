@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# MyNotes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MyNotes is the modern notes app. You can put all your important points and lines at one place.
 
-## Available Scripts
+## Preview
 
-In the project directory, you can run:
+Checkout the [Live Link](https://devdeadviz-my-notes.netlify.app/)
 
-### `yarn start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Landing Page
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- User can see a landing page with Join Now button which will redirect User to signup page.
+- First User need to create their account to get started with the app.
 
-### `yarn test`
+### Home Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- On homepage user can create notes by clicking on `Create New Note` button.
+- User can add labels to their notes.
+- User can add different `colors` to your cards.
+- User can `archive, delete or edit` the existing notes.
 
-### `yarn build`
+### Labels Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- User can `create labels` as per their convenience or need and utilise them on the homepage.
+- User can `delete existing labels`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Archives Page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Notes archived by user will appear here, he can unarchive them or delete them from this section.
 
-### `yarn eject`
+### Trash Page
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Notes deleted by the user will appear here, he can restore them or permanently delete the notes from the trash page.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Profile Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Logged In user details will be shown here.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Filters
 
-## Learn More
+- User can also `sort notes` by `oldest or latest` dates.
+- User can `filter notes` based on their `labels`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tech Stack
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React JS
+- CSS
+- JavaScript
 
-### Code Splitting
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [@devdeadviz](https://github.com/devdeadviz)
 
-### Analyzing the Bundle Size
+## 🚀 About Me
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Hi! I'm Kuldeep Gupta, a budding full-stack developer and a Graphic Designer.
 
-### Making a Progressive Web App
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Contributions are always welcome!
 
-### Advanced Configuration
+## 🔗 Links
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Glad to see you here! Show some love by [starring](https://github.com/devdeadviz/meck-store) this repo!
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://kuldeepgupta.netlify.app/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/devdeadviz/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/devdeadviz)
