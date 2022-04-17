@@ -80,7 +80,10 @@ const Filter = ({ setShowFilterBox }) => {
           >
             Close
           </button>
-          <button className="btn btn-primary clear-filter-btn filter-modal-button m-2">
+          <button
+            className="btn btn-primary clear-filter-btn filter-modal-button m-2"
+            onClick={() => sortFilterDispatch({ type: "CLEAR_ALL" })}
+          >
             Clear Filter
           </button>
         </div>
