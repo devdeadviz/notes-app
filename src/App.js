@@ -9,6 +9,7 @@ import {
   LabelsPage,
   LandingPage,
   Login,
+  Profile,
   Signup,
   Trash,
 } from "./pages";
@@ -49,6 +50,7 @@ const App = () => {
           <Route path="/trash" element={<Trash />} />
           <Route path="/archive" element={<Archive />} />
           <Route path="/labels" element={<LabelsPage />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>
     </>
