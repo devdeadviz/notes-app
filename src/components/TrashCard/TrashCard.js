@@ -1,3 +1,4 @@
+import { Chip } from "../Chips/Chip";
 import "./TrashCard.css";
 
 const TrashCard = ({
@@ -5,10 +6,13 @@ const TrashCard = ({
   deleteNoteFromTrashHandler,
   restoreTrashNoteHandler,
 }) => {
-  const { title, body, createdAt, _id, noteColor } = note;
+  const { title, body, createdAt, _id, noteColor, labels } = note;
 
   return (
-    <div className="vertical-card-wrapper trash-card-wrapper p-2 my-4" style={{backgroundColor: noteColor}}>
+    <div
+      className="vertical-card-wrapper trash-card-wrapper p-2 my-4"
+      style={{ backgroundColor: noteColor }}
+    >
       <div className="vertical-card-header flex flexAlignItemsCenter">
         <h2 className="m-2">{title}</h2>
         <i className="fa-solid fa-thumbtack mx-3"></i>
@@ -16,6 +20,7 @@ const TrashCard = ({
       <div className="vertical-card-body my-4 mx-2">
         <p>{body}</p>
       </div>
+      {labels && <Chip text={labels} />}
       <div className="trash-card-footer flex flexAlignItemsCenter">
         <p className="trash-card-date ml-2">Deleted on: {createdAt}</p>
         <div className="trash-card-options">

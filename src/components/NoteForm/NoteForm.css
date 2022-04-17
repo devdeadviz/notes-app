@@ -25,14 +25,15 @@
   margin-top: 0;
 }
 
-.add-note-btn, .cancel-note-btn {
+.add-note-btn,
+.cancel-note-btn {
   font-size: small;
   padding: 5px;
   border: none;
 }
 
 .cancel-note-btn {
-  color: var(--text-color)
+  color: var(--text-color);
 }
 
 .note-form-options,
@@ -40,4 +41,14 @@
   margin-left: auto;
   font-size: 1.5rem;
   color: var(--icons-color);
+}
+
+.note-form-label-lists {
+  background-color: var(--white-color);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.label-item {
+  width: fit-content;
 }

@@ -3,6 +3,7 @@ import { getFormattedDate } from "../../utils";
 import { ColorPalette } from "../ColorPalette/ColorPalette";
 import { useState } from "react";
 import "./NoteForm.css";
+import { Chip } from "../Chips/Chip";
 
 const NoteForm = ({
   note,
@@ -17,13 +18,26 @@ const NoteForm = ({
 
   const [showColorPalette, setShowColorPalette] = useState(false);
 
+  const [showLabelList, setShowLabelList] = useState(false);
+
   const {
-    noteState: { noteColor },
+    noteState: { noteColor, labelsList, labels },
     noteDispatch,
   } = useNote();
 
   const getNoteColor = (color) => {
     noteDispatch({ type: "NOTE_COLOR", payload: color });
+  };
+
+  const addLabelHandler = (labelValue) => {
+    noteDispatch({ type: "ADD_LABEL", payload: labelValue });
+  };
+
+  const hideNoteFormHandler = () => {
+    setShowNoteForm(false);
+    setNote({ ...note, title: "", body: "", createdAt: "" });
+    noteDispatch({ type: "CLEAR_LABEL" });
+    noteDispatch({ type: "CLEAR_NOTE_COLOR" });
   };
 
   return (
@@ -37,12 +51,14 @@ const NoteForm = ({
                   ...note,
                   createdAt: getFormattedDate(),
                   noteColor,
+                  labels,
                 })
             : (e) =>
                 addNoteHandler(e, {
                   ...note,
                   createdAt: getFormattedDate(),
                   noteColor,
+                  labels,
                 })
         }
         style={{ backgroundColor: noteColor }}
@@ -64,6 +80,7 @@ const NoteForm = ({
           value={note.body}
           onChange={(e) => setNote({ ...note, body: e.target.value })}
         />
+        {labels && <Chip text={labels} />}
         <div className="flex flexAlignItemsCenter">
           <button
             type="submit"
@@ -74,7 +91,7 @@ const NoteForm = ({
           <button
             type="button"
             className="btn btn-outline-secondary cancel-note-btn m-2"
-            onClick={() => setShowNoteForm(false)}
+            onClick={hideNoteFormHandler}
           >
             Cancel
           </button>
@@ -83,11 +100,46 @@ const NoteForm = ({
               className="fa-solid fa-palette mx-3"
               onClick={() => setShowColorPalette((prev) => !prev)}
             ></i>
-            <i className="fa-solid fa-tag mx-3"></i>
+            <i
+              className="fa-solid fa-tag mx-3"
+              onClick={() => setShowLabelList((prev) => !prev)}
+            ></i>
           </div>
         </div>
       </form>
       {showColorPalette && <ColorPalette getNoteColor={getNoteColor} />}
+      {showLabelList && (
+        <section className="note-form-label-lists m-1">
+          <h4>Labels:</h4>
+          <section className="flex flexWrap">
+            <label className="label-item flex flexAlignItemsCenter m-2">
+              <input
+                className="mr-2"
+                type="radio"
+                name="labels"
+                value=""
+                onClick={(e) => addLabelHandler(e.target.value)}
+              />
+              none
+            </label>
+            {labelsList.map(({ label, id }) => (
+              <label
+                className="label-item flex flexAlignItemsCenter m-2"
+                key={id}
+              >
+                <input
+                  className="mr-2"
+                  type="radio"
+                  name="labels"
+                  value={label}
+                  onClick={(e) => addLabelHandler(e.target.value)}
+                />
+                {label}
+              </label>
+            ))}
+          </section>
+        </section>
+      )}
     </>
   );
 };

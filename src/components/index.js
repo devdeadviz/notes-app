@@ -6,3 +6,5 @@ export { SearchInput } from "./SearchInput/SearchInput";
 export { TrashCard } from "./TrashCard/TrashCard";
 export { ArchiveCard } from "./ArchiveCard/ArchiveCard";
 export { ColorPalette } from "./ColorPalette/ColorPalette";
+export { LabelInput } from "./LabelInput/LabelInput";
+export { Chip } from "./Chips/Chip";

@@ -1,3 +1,4 @@
+import { Chip } from "../Chips/Chip";
 import "./ArchiveCard.css";
 
 const ArchiveCard = ({
@@ -5,7 +6,7 @@ const ArchiveCard = ({
   restoreArchiveNoteHandler,
   moveArchiveNoteToTrash,
 }) => {
-  const { title, body, createdAt, _id, noteColor } = note;
+  const { title, body, createdAt, _id, noteColor, labels } = note;
   return (
     <div
       className="vertical-card-wrapper archive-card-wrapper p-2 my-4"
@@ -17,6 +18,7 @@ const ArchiveCard = ({
       <div className="vertical-card-body my-4 mx-2">
         <p>{body}</p>
       </div>
+      {labels && <Chip text={labels} />}
       <div className="archive-card-footer flex flexAlignItemsCenter">
         <p className="archive-card-date ml-2">Archived on: {createdAt}</p>
         <div className="archive-card-options">
