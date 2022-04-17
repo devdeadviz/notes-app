@@ -40,10 +40,10 @@ const Filter = ({ setShowFilterBox }) => {
                 <input
                   className="mr-2"
                   type="radio"
-                  value="earliest"
+                  value="oldest"
                   name="sort-by-date"
                 />
-                Date created: earliest
+                Date created: oldest
               </label>
             </section>
           </section>
