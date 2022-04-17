@@ -3,6 +3,7 @@ import { getFormattedDate } from "../../utils";
 import { ColorPalette } from "../ColorPalette/ColorPalette";
 import { useState } from "react";
 import "./NoteForm.css";
+import { Chip } from "../Chips/Chip";
 
 const NoteForm = ({
   note,
@@ -71,7 +72,7 @@ const NoteForm = ({
           value={note.body}
           onChange={(e) => setNote({ ...note, body: e.target.value })}
         />
-        <span className="label-chip-wrapper">{labels}</span>
+        {labels && <Chip text={labels} />}
         <div className="flex flexAlignItemsCenter">
           <button
             type="submit"
