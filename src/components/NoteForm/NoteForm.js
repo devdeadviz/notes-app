@@ -3,6 +3,7 @@ import { getFormattedDate } from "../../utils";
 import { ColorPalette } from "../ColorPalette/ColorPalette";
 import { useState } from "react";
 import "./NoteForm.css";
+import { Label } from "../Label/Label";
 
 const NoteForm = ({
   note,
@@ -16,6 +17,8 @@ const NoteForm = ({
   } = useNote();
 
   const [showColorPalette, setShowColorPalette] = useState(false);
+
+  const [showLabel, setShowLabel] = useState(false);
 
   const {
     noteState: { noteColor },
@@ -83,11 +86,15 @@ const NoteForm = ({
               className="fa-solid fa-palette mx-3"
               onClick={() => setShowColorPalette((prev) => !prev)}
             ></i>
-            <i className="fa-solid fa-tag mx-3"></i>
+            <i
+              className="fa-solid fa-tag mx-3"
+              onClick={() => setShowLabel((prev) => !prev)}
+            ></i>
           </div>
         </div>
       </form>
       {showColorPalette && <ColorPalette getNoteColor={getNoteColor} />}
+      {showLabel && <Label />}
     </>
   );
 };
