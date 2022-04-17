@@ -1,6 +1,6 @@
 .sidebar-wrapper {
   flex-basis: 20rem;
-  height: 89.5vh;
+  min-height: 89.5vh;
 }
 
 .sidebar-lists {
