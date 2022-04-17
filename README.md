@@ -4,6 +4,8 @@ MyNotes is the modern notes app. You can put all your important points and lines
 
 ## Preview
 
+https://user-images.githubusercontent.com/54413717/163733341-7db2879f-9d4d-42cd-839b-e595bc650cde.mp4
+
 Checkout the [Live Link](https://devdeadviz-my-notes.netlify.app/)
 
 ## Features
