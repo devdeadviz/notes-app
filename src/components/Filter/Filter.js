@@ -2,12 +2,11 @@ import { useNote, useSortFilter } from "../../contexts";
 import "./Filter.css";
 
 const Filter = ({ setShowFilterBox }) => {
-
   const {
     noteState: { labelsList },
   } = useNote();
 
-  const { sortFilterState: { sortBy }, sortFilterDispatch } = useSortFilter()
+  const { sortFilterDispatch } = useSortFilter();
 
   return (
     <div className="filter-modal">
@@ -36,7 +35,12 @@ const Filter = ({ setShowFilterBox }) => {
                   type="radio"
                   value="latest"
                   name="sort-by-date"
-                  onChange={() => sortFilterDispatch({ type: "SORT_BY_DATE", payload: "LATEST" })}
+                  onChange={() =>
+                    sortFilterDispatch({
+                      type: "SORT_BY_DATE",
+                      payload: "LATEST",
+                    })
+                  }
                 />
                 Date created: latest
               </label>
@@ -46,7 +50,12 @@ const Filter = ({ setShowFilterBox }) => {
                   type="radio"
                   value="oldest"
                   name="sort-by-date"
-                  onChange={() => sortFilterDispatch({ type: "SORT_BY_DATE", payload: "OLDEST" })}
+                  onChange={() =>
+                    sortFilterDispatch({
+                      type: "SORT_BY_DATE",
+                      payload: "OLDEST",
+                    })
+                  }
                 />
                 Date created: oldest
               </label>
@@ -60,9 +69,7 @@ const Filter = ({ setShowFilterBox }) => {
           >
             Close
           </button>
-          <button
-            className="btn btn-primary clear-filter-btn filter-modal-button m-2"
-          >
+          <button className="btn btn-primary clear-filter-btn filter-modal-button m-2">
             Clear Filter
           </button>
         </div>
