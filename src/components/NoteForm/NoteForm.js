@@ -33,6 +33,13 @@ const NoteForm = ({
     noteDispatch({ type: "ADD_LABEL", payload: labelValue });
   };
 
+  const hideNoteFormHandler = () => {
+    setShowNoteForm(false);
+    setNote({ ...note, title: "", body: "", createdAt: "" });
+    noteDispatch({ type: "CLEAR_LABEL" });
+    noteDispatch({ type: "CLEAR_NOTE_COLOR" });
+  };
+
   return (
     <>
       <form
@@ -44,7 +51,7 @@ const NoteForm = ({
                   ...note,
                   createdAt: getFormattedDate(),
                   noteColor,
-                  labels
+                  labels,
                 })
             : (e) =>
                 addNoteHandler(e, {
@@ -84,7 +91,7 @@ const NoteForm = ({
           <button
             type="button"
             className="btn btn-outline-secondary cancel-note-btn m-2"
-            onClick={() => setShowNoteForm(false)}
+            onClick={hideNoteFormHandler}
           >
             Cancel
           </button>

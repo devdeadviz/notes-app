@@ -37,6 +37,7 @@ const HomePage = () => {
       body: editNote.body,
       _id: editNote._id,
     });
+    noteDispatch({ type: "NOTE_COLOR", payload: editNote.noteColor })
     noteDispatch({ type: "ADD_LABEL", payload: editNote.labels });
     noteDispatch({ type: "EDIT_NOTE" });
     setShowNoteForm(true);
