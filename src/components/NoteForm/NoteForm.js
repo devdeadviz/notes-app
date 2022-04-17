@@ -3,7 +3,7 @@ import { getFormattedDate } from "../../utils";
 import { ColorPalette } from "../ColorPalette/ColorPalette";
 import { useState } from "react";
 import "./NoteForm.css";
-import { Label } from "../Label/Label";
+import { Label } from "../LabelInput/Label";
 
 const NoteForm = ({
   note,

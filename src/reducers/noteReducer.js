@@ -22,6 +22,7 @@ const noteReducer = (state, action) => {
       return { ...state, trashNotes: action.payload };
     case "NOTE_COLOR":
       return { ...state, noteColor: action.payload };
+    case "ADD_LABELS_TO_LIST": return { ...state, labelsList: [...state.labelsList, action.payload] }
     default:
       return state;
   }
