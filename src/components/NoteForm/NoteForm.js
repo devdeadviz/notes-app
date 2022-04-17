@@ -20,12 +20,16 @@ const NoteForm = ({
   const [showLabelList, setShowLabelList] = useState(false);
 
   const {
-    noteState: { noteColor, labelsList },
+    noteState: { noteColor, labelsList, labels },
     noteDispatch,
   } = useNote();
 
   const getNoteColor = (color) => {
     noteDispatch({ type: "NOTE_COLOR", payload: color });
+  };
+
+  const addLabelHandler = (labelValue) => {
+    noteDispatch({ type: "ADD_LABEL", payload: labelValue });
   };
 
   return (
@@ -45,6 +49,7 @@ const NoteForm = ({
                   ...note,
                   createdAt: getFormattedDate(),
                   noteColor,
+                  labels,
                 })
         }
         style={{ backgroundColor: noteColor }}
@@ -66,6 +71,7 @@ const NoteForm = ({
           value={note.body}
           onChange={(e) => setNote({ ...note, body: e.target.value })}
         />
+        <span className="label-chip-wrapper">{labels}</span>
         <div className="flex flexAlignItemsCenter">
           <button
             type="submit"
@@ -107,6 +113,7 @@ const NoteForm = ({
                   type="radio"
                   name="labels"
                   value={label}
+                  onClick={(e) => addLabelHandler(e.target.value)}
                 />
                 {label}
               </label>

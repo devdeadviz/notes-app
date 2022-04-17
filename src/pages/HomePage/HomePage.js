@@ -26,6 +26,7 @@ const HomePage = () => {
     noteDispatch({ type: "ADD_NOTE", payload: notes });
     showToast("Note Added!", "success");
     setNote({ ...note, title: "", body: "", createdAt: "" });
+    noteDispatch({ type: "CLEAR_LABEL" });
     setShowNoteForm(false);
   };
 
@@ -69,9 +70,16 @@ const HomePage = () => {
   };
 
   const archiveNoteHandler = async (note) => {
-    const { notes, archives } = await archiveNote(note, encodedToken, showToast);
-    noteDispatch({ type: "ARCHIVE_AND_UNARCHIVE_NOTE", payload: { notes, archives } });
-    showToast("Note moved to Archive!", "success")
+    const { notes, archives } = await archiveNote(
+      note,
+      encodedToken,
+      showToast
+    );
+    noteDispatch({
+      type: "ARCHIVE_AND_UNARCHIVE_NOTE",
+      payload: { notes, archives },
+    });
+    showToast("Note moved to Archive!", "success");
   };
 
   return (
