@@ -6,18 +6,17 @@
 }
 
 .fa-magnifying-glass,
-.fa-bars {
+.fa-filter {
   color: var(--icons-color);
+  font-size: 1.5rem;
 }
 
 .fa-magnifying-glass {
-  font-size: 1.5rem;
   margin: 0 10px;
 }
 
-.fa-bars {
+.fa-filter {
   margin-left: auto;
-  font-size: 1.5rem;
   margin-right: 10px;
 }
 

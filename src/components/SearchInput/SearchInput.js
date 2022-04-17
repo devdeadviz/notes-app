@@ -10,7 +10,7 @@ const SearchInput = () => {
       <i className="fa-solid fa-magnifying-glass"></i>
       <input className="search-input" type="text" placeholder="Search" />
       <i
-        className="fa-solid fa-bars"
+        className="fa-solid fa-filter"
         onClick={() => setShowFilterBox(true)}
       ></i>
       {showFilterBox && <Filter setShowFilterBox={setShowFilterBox} />}
