@@ -6,7 +6,10 @@ const Filter = ({ setShowFilterBox }) => {
     noteState: { labelsList },
   } = useNote();
 
-  const { sortFilterDispatch } = useSortFilter();
+  const {
+    sortFilterState: { sortBy, filterBy },
+    sortFilterDispatch,
+  } = useSortFilter();
 
   return (
     <div className="filter-modal">
@@ -25,6 +28,7 @@ const Filter = ({ setShowFilterBox }) => {
                     type="radio"
                     name="filter-by-labels"
                     value={label}
+                    checked={filterBy === label}
                     onChange={() =>
                       sortFilterDispatch({
                         type: "FILTER_BY_LABELS",
@@ -43,6 +47,7 @@ const Filter = ({ setShowFilterBox }) => {
               <label className="flex flexAlignItemsCenter m-2">
                 <input
                   className="mr-2"
+                  checked={sortBy === "LATEST"}
                   type="radio"
                   value="latest"
                   name="sort-by-date"
@@ -58,6 +63,7 @@ const Filter = ({ setShowFilterBox }) => {
               <label className="flex flexAlignItemsCenter m-2">
                 <input
                   className="mr-2"
+                  checked={sortBy === "OLDEST"}
                   type="radio"
                   value="oldest"
                   name="sort-by-date"
