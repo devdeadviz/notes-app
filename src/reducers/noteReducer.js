@@ -33,6 +33,8 @@ const noteReducer = (state, action) => {
       return { ...state, labels: action.payload };
     case "CLEAR_LABEL":
       return { ...state, labels: "" };
+    case "CLEAR_NOTE_COLOR":
+      return { ...state, noteColor: "" };
     default:
       return state;
   }
