@@ -3,7 +3,7 @@ import { NoteCard, NoteForm, SearchInput, Sidebar } from "../../components";
 import { useAuth, useNote, useSortFilter } from "../../contexts";
 import { useToast } from "../../custom-hooks";
 import { addNote, archiveNote, deleteNote, editNote } from "../../services";
-import { sortByDateFunc } from "../../utils";
+import { filterByLabels, sortByDateFunc } from "../../utils";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -20,7 +20,7 @@ const HomePage = () => {
   } = useNote();
 
   const {
-    sortFilterState: { sortBy },
+    sortFilterState: { sortBy, filterBy },
   } = useSortFilter();
 
   const { showToast } = useToast();
@@ -90,7 +90,8 @@ const HomePage = () => {
     showToast("Note moved to Archive!", "success");
   };
 
-  const sortedNotes = sortByDateFunc(newNotes, sortBy);
+  const filteredNotes = filterByLabels(newNotes, filterBy);
+  const sortedNotes = sortByDateFunc(filteredNotes, sortBy);
 
   return (
     <section className="homepage-wrapper flex">

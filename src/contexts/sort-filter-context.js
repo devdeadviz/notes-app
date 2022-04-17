@@ -3,6 +3,7 @@ import { sortFilterReducer } from "../reducers";
 
 const initialState = {
   sortBy: "",
+  filterBy: "",
 };
 
 const SortFilterContext = createContext();

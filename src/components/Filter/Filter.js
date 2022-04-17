@@ -20,7 +20,18 @@ const Filter = ({ setShowFilterBox }) => {
             <section>
               {labelsList.map(({ label, id }) => (
                 <label className="flex flexAlignItemsCenter m-2" key={id}>
-                  <input className="mr-2" type="checkbox" value={label} />
+                  <input
+                    className="mr-2"
+                    type="radio"
+                    name="filter-by-labels"
+                    value={label}
+                    onChange={() =>
+                      sortFilterDispatch({
+                        type: "FILTER_BY_LABELS",
+                        payload: label,
+                      })
+                    }
+                  />
                   {label}
                 </label>
               ))}
