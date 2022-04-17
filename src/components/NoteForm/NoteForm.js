@@ -44,6 +44,7 @@ const NoteForm = ({
                   ...note,
                   createdAt: getFormattedDate(),
                   noteColor,
+                  labels
                 })
             : (e) =>
                 addNoteHandler(e, {

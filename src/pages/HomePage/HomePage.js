@@ -37,6 +37,7 @@ const HomePage = () => {
       body: editNote.body,
       _id: editNote._id,
     });
+    noteDispatch({ type: "ADD_LABEL", payload: editNote.labels });
     noteDispatch({ type: "EDIT_NOTE" });
     setShowNoteForm(true);
   };
@@ -51,6 +52,7 @@ const HomePage = () => {
     );
     noteDispatch({ type: "UPDATE_NOTE", payload: editedNote });
     setNote({ ...note, title: "", body: "", createdAt: "" });
+    noteDispatch({ type: "CLEAR_LABEL" });
     setShowNoteForm(false);
   };
 
