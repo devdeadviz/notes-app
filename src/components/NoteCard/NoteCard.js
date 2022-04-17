@@ -29,7 +29,6 @@ const NoteCard = ({
             className="fa-solid fa-pencil mx-3"
             onClick={() => editNoteHandler({ ...note, _id: note._id })}
           ></i>
-          <i className="fa-solid fa-tag mx-3"></i>
           <i
             className="fa-solid fa-box-archive mx-3"
             onClick={() => archiveNoteHandler(note)}
