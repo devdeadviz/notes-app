@@ -11,7 +11,7 @@ const Label = () => {
   };
 
   return (
-    <div className="flex flexCol my-2">
+    <div className="label-wrapper flex flexCol">
       <section className="flex flexAlignItemsCenter flexJustifyCenter">
         <input
           className="label-input"
@@ -25,7 +25,7 @@ const Label = () => {
           onClick={labelListHandler}
         ></i>
       </section>
-      <section className="flex flexCol m-2">
+      <section className="flex flexCol m-1">
         {labelList.map((label) => (
           <label
             className="label-item flex flexAlignItemsCenter m-1"
