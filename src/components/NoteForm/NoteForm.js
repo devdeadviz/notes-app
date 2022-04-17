@@ -112,6 +112,16 @@ const NoteForm = ({
         <section className="note-form-label-lists m-1">
           <h4>Labels:</h4>
           <section className="flex flexWrap">
+            <label className="label-item flex flexAlignItemsCenter m-2">
+              <input
+                className="mr-2"
+                type="radio"
+                name="labels"
+                value=""
+                onClick={(e) => addLabelHandler(e.target.value)}
+              />
+              none
+            </label>
             {labelsList.map(({ label, id }) => (
               <label
                 className="label-item flex flexAlignItemsCenter m-2"
