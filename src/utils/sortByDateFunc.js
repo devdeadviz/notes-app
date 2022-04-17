@@ -1,5 +1,5 @@
 const sortByDateFunc = (notes, sortBy) => {
-  if (sortBy === "oldest")
+  if (sortBy === "OLDEST")
     return [...notes].sort((firstDate, secondDate) => {
       const firstObjDate = firstDate.createdAt.toString().split("/");
       const secondObjDate = secondDate.createdAt.toString().split("/");
@@ -9,7 +9,7 @@ const sortByDateFunc = (notes, sortBy) => {
         firstObjDate[0] - secondObjDate[0]
       );
     });
-  else if (sortBy === "latest")
+  else if (sortBy === "LATEST")
     return [...notes].sort((firstDate, secondDate) => {
       const firstObjDate = firstDate.createdAt.toString().split("/");
       const secondObjDate = secondDate.createdAt.toString().split("/");

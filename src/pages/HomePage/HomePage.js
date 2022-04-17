@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { NoteCard, NoteForm, SearchInput, Sidebar } from "../../components";
-import { useAuth, useNote } from "../../contexts";
+import { useAuth, useNote, useSortFilter } from "../../contexts";
 import { useToast } from "../../custom-hooks";
 import { addNote, archiveNote, deleteNote, editNote } from "../../services";
+import { sortByDateFunc } from "../../utils";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -17,6 +18,10 @@ const HomePage = () => {
     noteState: { newNotes },
     noteDispatch,
   } = useNote();
+
+  const {
+    sortFilterState: { sortBy },
+  } = useSortFilter();
 
   const { showToast } = useToast();
 
@@ -37,7 +42,7 @@ const HomePage = () => {
       body: editNote.body,
       _id: editNote._id,
     });
-    noteDispatch({ type: "NOTE_COLOR", payload: editNote.noteColor })
+    noteDispatch({ type: "NOTE_COLOR", payload: editNote.noteColor });
     noteDispatch({ type: "ADD_LABEL", payload: editNote.labels });
     noteDispatch({ type: "EDIT_NOTE" });
     setShowNoteForm(true);
@@ -85,6 +90,8 @@ const HomePage = () => {
     showToast("Note moved to Archive!", "success");
   };
 
+  const sortedNotes = sortByDateFunc(newNotes, sortBy);
+
   return (
     <section className="homepage-wrapper flex">
       <Sidebar showBtn={true} setShowNoteForm={setShowNoteForm} />
@@ -99,7 +106,7 @@ const HomePage = () => {
             setShowNoteForm={setShowNoteForm}
           />
         )}
-        {newNotes.map((noteData) => (
+        {sortedNotes.map((noteData) => (
           <NoteCard
             key={noteData._id}
             note={noteData}
