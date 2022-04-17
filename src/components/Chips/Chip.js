@@ -2,7 +2,7 @@ import "./Chip.css";
 
 const Chip = ({ text }) => {
   return (
-    <div class="chip-wrapper">
+    <div className="chip-wrapper">
       <p>{text}</p>
     </div>
   );
